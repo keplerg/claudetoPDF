@@ -8,17 +8,20 @@ chrome.action.onClicked.addListener((tab) => {
 async function addPrintCSS() {
     const customStyles = `
     @media print {
+        div.w-full {
+            background-color: #fff !important;
+            padding-bottom: 200px;
+            overflow: visible;
+        }
         div.flex-row:has([data-testid=user-message]) {
             print-color-adjust: exact !important;
             background-color: #eee !important;
             border-radius: 10px;
             padding-right: 10px;
         }
-        div:has([data-test-render-count=1]) {
+        div:has([data-test-render-count]) * {
             clear: both;
             z-index: 1000;
-        }
-        div:has([data-test-render-count]) * {
             font-size: .75rem;
             line-height: 1rem;
         }
@@ -56,11 +59,14 @@ async function addPrintCSS() {
         header.sticky.top-0 svg {
             display: none;
         }
-        header.sticky.top-0 a {
+        header.sticky.top-0 div.pl-1 {
             display: none;
         }
         header.sticky.top-0 div.right-3:has(button) {
             display: none;
+        }
+        div.sticky.opacity-0 {
+            display:none;
         }
         div.sticky.bottom-0 {
             margin-left: -9999px;
@@ -69,6 +75,9 @@ async function addPrintCSS() {
             display: none;
         }
         div.tracking-tighter {
+            display: none;
+        }
+        div.mt-6 {
             display: none;
         }
         button.cursor-pointer {
@@ -84,6 +93,11 @@ async function addPrintCSS() {
         div {
             --thread-content-max-width: 100% important;
             --thread-content-margin: 0 important;
+        }
+        pre, pre code {
+            color: #000 !important;
+            font: mono;
+            transform: scale(1);
         }
     }
     `;
