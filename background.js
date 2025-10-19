@@ -53,6 +53,11 @@ async function addPrintCSS() {
         div.shrink-0:has(.z-sidebar) {
             display: none;
         }
+        span a.inline-flex[target="_blank"] {
+            font: mono !important;
+            font-size: .5rem !important;
+            background-color: #fff !important;
+        }
         header.sticky.top-0 {
             font-size: 1.5rem !important;
         }
@@ -77,6 +82,9 @@ async function addPrintCSS() {
         div.tracking-tighter {
             display: none;
         }
+        div.leading-normal {
+            display: none;
+        }
         div.mt-6 {
             display: none;
         }
@@ -89,7 +97,7 @@ async function addPrintCSS() {
         div.draggable:has(~ main#main) {
             display: none;
         }
-        !box-content  flex  flex-col  bg-bg-000  mx-2  md:mx-0  items-stretch  transition-all  duration-200  relative  cursor-text  z-10  rounded-2xl border border-transparent shadow-[0_0.25rem_1.25rem_hsl(var(--always-black)/3.5%),0_0_0_0.5px_hsla(var(--border-300)/0.15)] hover:shadow-[0_0.25rem_1.25rem_hsl(var(--always-black)/3.5%),0_0_0_0.5px_hsla(var(--border-200)/0.3)] focus-within:shadow-[0_0.25rem_1.25rem_hsl(var(--always-black)/7.5%),0_0_0_0.5px_hsla(var(--border-200)/0.3)] hover:focus-within:shadow-[0_0.25rem_1.25rem_hsl(var(--always-black)/7.5%),0_0_0_0.5px_hsla(var(--border-200)/0.3)]
+        /* !box-content  flex  flex-col  bg-bg-000  mx-2  md:mx-0  items-stretch  transition-all  duration-200  relative  cursor-text  z-10  rounded-2xl border border-transparent shadow-[0_0.25rem_1.25rem_hsl(var(--always-black)/3.5%),0_0_0_0.5px_hsla(var(--border-300)/0.15)] hover:shadow-[0_0.25rem_1.25rem_hsl(var(--always-black)/3.5%),0_0_0_0.5px_hsla(var(--border-200)/0.3)] focus-within:shadow-[0_0.25rem_1.25rem_hsl(var(--always-black)/7.5%),0_0_0_0.5px_hsla(var(--border-200)/0.3)] hover:focus-within:shadow-[0_0.25rem_1.25rem_hsl(var(--always-black)/7.5%),0_0_0_0.5px_hsla(var(--border-200)/0.3)] */
         div {
             --thread-content-max-width: 100% important;
             --thread-content-margin: 0 important;
