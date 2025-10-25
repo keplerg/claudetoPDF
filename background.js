@@ -53,10 +53,10 @@ async function addPrintCSS() {
         div.shrink-0:has(.z-sidebar) {
             display: none;
         }
-        span a.inline-flex[target="_blank"] {
+        span.font-small {
             font: mono !important;
-            font-size: .5rem !important;
-            background-color: #fff !important;
+            font-size: .3rem !important;
+            background-color: #eee !important;
         }
         header.sticky.top-0 {
             font-size: 1.5rem !important;
