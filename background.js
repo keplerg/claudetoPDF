@@ -8,9 +8,11 @@ chrome.action.onClicked.addListener((tab) => {
 async function addPrintCSS() {
     const customStyles = `
     @media print {
+        body {
+            background-color: #fff !important;
+        }
         div.w-full {
             background-color: #fff !important;
-            padding-bottom: 200px;
             overflow: visible;
         }
         div.flex-row:has([data-testid=user-message]) {
@@ -19,11 +21,22 @@ async function addPrintCSS() {
             border-radius: 10px;
             padding-right: 10px;
         }
-        div:has([data-test-render-count]) * {
-            clear: both;
-            z-index: 1000;
-            font-size: .75rem;
-            line-height: 1rem;
+        div:has([data-test-render-count]) {
+            display: inline-block;
+            width: 100%;
+            margin-left: 20px;
+        }
+        div[data-test-render-count] {
+            display: inline-block;
+            width: 100%;
+            z-index: 1000 !important;
+        }
+        div[data-test-render-count] * {
+            z-index: 1000 !important;
+            break-inside: avoid !important;
+            opacity: 1.0 !important;
+            font-size: 1rem;
+            line-height: 1.75rem;
         }
         div:has([data-test-render-count]) * .katex-display {
             font-size: 1rem;
@@ -53,13 +66,24 @@ async function addPrintCSS() {
         div.shrink-0:has(.z-sidebar) {
             display: none;
         }
-        span.font-small {
-            font: mono !important;
-            font-size: .3rem !important;
-            background-color: #eee !important;
+        /*
+        div.pt-3.pb-3,
+        div.pt-2.pb-3 {
+            display: none;
         }
-        header.sticky.top-0 {
-            font-size: 1.5rem !important;
+        */
+        a span.bg-gradient-to-r {
+            display: none;
+        }
+        a span.font-small span.font-normal {
+            font: mono !important;
+            font-size: .5em !important;
+            background-color: #f6f6f6 !important;
+        }
+        header.sticky.top-0 div.font-base-bold {
+            font-size: 1.25rem !important;
+            line-height: 1.5rem;
+            font-weight: 700;
         }
         header.sticky.top-0 svg {
             display: none;
@@ -74,7 +98,15 @@ async function addPrintCSS() {
             display:none;
         }
         div.sticky.bottom-0 {
-            margin-left: -9999px;
+            display:none;
+        }
+        div:has('div.m1-1') {
+            display:none;
+        }
+        div.sticky.pointer-events-none {
+            display:none;
+        }
+            display:none;
         }
         div.text-accent-brand {
             display: none;
