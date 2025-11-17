@@ -9,6 +9,7 @@ async function addPrintCSS() {
     const customStyles = `
     @media print {
         body {
+            color: #000 !important;
             background-color: #fff !important;
         }
         div.w-full {
@@ -16,7 +17,9 @@ async function addPrintCSS() {
             overflow: visible;
         }
         div.flex-row:has([data-testid=user-message]) {
+            -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
+            color: #000 !important;
             background-color: #eee !important;
             border-radius: 10px;
             padding-right: 10px;
